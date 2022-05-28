@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `sensores` (
 -- Volcando estructura para tabla sistemh.tiposensor
 CREATE TABLE IF NOT EXISTS `tiposensor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_sensor` varchar(50) NOT NULL DEFAULT '0',
   `descripcion` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -85,6 +86,20 @@ CREATE TABLE IF NOT EXISTS `ubicacion` (
 /*!40000 ALTER TABLE `ubicacion` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ubicacion` ENABLE KEYS */;
 
+-- Volcando estructura para tabla sistemh.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+-- Volcando datos para la tabla sistemh.users: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
 -- Volcando estructura para tabla sistemh.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
@@ -103,9 +118,10 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 
 -- Volcando estructura para tabla sistemh.zona
 CREATE TABLE IF NOT EXISTS `zona` (
-  `id_zona` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id_zona`)
+  `id_zona` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla sistemh.zona: ~0 rows (aproximadamente)
